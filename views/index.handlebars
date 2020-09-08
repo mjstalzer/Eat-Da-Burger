@@ -1,1 +1,37 @@
-<p>I showed Up! It's working!</p>
+<div class="row">
+    <div class="col-lg-1">
+        <form id="addBurg" class="button-size">
+            <input type="text" id="ham" name="name" placeholder="add a burger...">
+            <button type="submit">Add!</button>
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Ready for grub:</h3>
+        <ol>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li class="card-title">
+                {{this.name}}
+                {{!-- {{this.id}} --}}
+                <button class="devour" data-id="{{this.id}}">Devour It!</button>
+            </li>
+            {{/unless}}
+            {{/each}}
+        </ol>
+    </div>
+    <div class="col-lg-6">
+        <h3>Devoured:</h3>
+        <ol>
+            {{#each burgers}}
+            {{#if devoured}}
+            <li class="card-title">
+                {{this.name}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
