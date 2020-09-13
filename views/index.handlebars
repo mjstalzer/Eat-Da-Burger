@@ -1,37 +1,53 @@
 <div class="row">
-    <div class="col-lg-1">
+    <div class="justify-content-lg-center col-lg-12">
         <form id="addBurg" class="button-size">
-            <input type="text" id="ham" name="name" placeholder="add a burger...">
-            <button type="submit">Add!</button>
+            <div class="card bg-light mb-3" style="width: 20rem;">
+                <div class="card-header text-white bg-dark">
+                    Add a burger:
+                </div>
+                <input type="text" id="ham" name="name" placeholder="start typing here..." style="margin: 10px;">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success" style="width: 8rem; margin: 10px;">Add!</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="col-lg-6">
-        <h3>Ready for grub:</h3>
-        <ol>
-            {{#each burgers}}
-            {{#unless devoured}}
-            <li class="card-title">
-                {{this.name}}
-                {{!-- {{this.id}} --}}
-                <button class="devour" data-id="{{this.id}}">Devour It!</button>
-            </li>
-            {{/unless}}
-            {{/each}}
-        </ol>
+        <div class="card bg-dark mb-3" style="width: 20rem;">
+            <div class="card-header text-white">
+                Ready for Grub:
+            </div>
+            <ul class="list-group list-group-flush">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li class="list-group-item bg-light">
+                    {{this.name}}
+                    {{!-- {{this.id}} --}}
+                    <button class="devour btn btn-danger" data-id="{{this.id}}" style="float: right;">Devour
+                        It!</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+                </uil>
+        </div>
     </div>
     <div class="col-lg-6">
-        <h3>Devoured:</h3>
-        <ol>
-            {{#each burgers}}
-            {{#if devoured}}
-            <li class="card-title">
-                {{this.name}}
-            </li>
-            {{/if}}
-            {{/each}}
-        </ol>
+        <div class="card bg-dark mb-3" style="width: 20rem;">
+            <div class="card-header text-white">
+                Devoured:
+            </div>
+            <ul class="list-group list-group-flush">
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="list-group-item bg-light">
+                    {{this.name}}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
 </div>
